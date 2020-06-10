@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron text-center">
+  <h1>Appa-Dachi</h1>
+  <div class="row">
+      <div class="col-5">
+          <div class="card text-center">
+              <h2 class="card-title">Stats:</h2>
+              <div class="flex-columm">
+                  <div>
+                      <p>Meals: @ViewBag.Meals</p>
+                      <p>Energy</p> <progress id="file" value=@ViewBag.Energy max="100"></progress>
+                      <p>Fullness</p> <progress id="file" value= @ViewBag.Fullness max="100"></progress>
+                      <p>Happiness</p> <progress id="file" value=@ViewBag.Happiness max="100"></progress>
+                  </div>
+                  <div>
+                    @if(ViewBag.Status == "Win" || ViewBag.Status == "Lose")
+                      {
+                        <a href="/reset"><button>Play Again</button></a>
+                      }
+                    else
+                    {                        
+                      <a href="/feed"><button class="btn btn-outline-dark m-2">feed</button></a>
+                      <a href="/play"><button class="btn btn-outline-dark m-2">play</button></a>
+                      <a href="/work"><button class="btn btn-outline-dark m-2">work</button></a>
+                      <a href="/rest"><button class="btn btn-outline-dark m-2">rest</button></a>
+                    }
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+      <div class="col-7 text-center">
+          <img class="img-fluid" src="~/img/@ViewBag.Image" alt="" style="max-height: 30rem;"/>
+          <h3 class="m-3">@ViewBag.Message</h3>
+      </div>
+  </div>
+</div>
